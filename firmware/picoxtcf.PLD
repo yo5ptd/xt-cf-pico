@@ -1,0 +1,49 @@
+Name            Iodecode;
+Partno          CA0010;
+Revision        02;
+Date            3/20/25;
+Designer        Antal Florian;
+Company         none;
+Assembly        PC Multi-Function;
+Location        U1;
+Device          G16V8AS;
+
+/************************************************************************/
+/* This device generates the chip select signals for the I/O functions. */
+/* It also enables the data bus transceiver for both memory and I/O     */
+/* write cycles.                                                        */
+/************************************************************************/
+
+/** Inputs **/
+
+pin [1..6] 	= [a9..4] ;	/* system addresses a4 - a9     */
+pin 9    	= !CF_DASP ;	/* same signal as ioacc         */
+pin 8	  	= RESETDRV;	/* for !CF_RESET		*/
+pin 11     	= AEN ;    	/* ISA bus AEN       		*/
+
+/** Outputs **/
+
+pin 13     = LED ;              /* led driven from CF_DASP	*/
+pin 16     = !CF_RESET ;        /* inverted RESETDRV from ISA	*/
+pin 18     = !CF_CS0 ;          /* calculated CF_CS0		*/
+pin 19     = !CF_CS1 ;          /* calculated CF_CS1		*/
+
+/** Declarations and Intermediate Variable Definitions  **/
+
+field   ioaddr    = [a9..4] ;
+xtioaddr1_eqn     = ioaddr:[300] ;  /*          I/O Address        */
+xtioaddr2_eqn     = ioaddr:[320] ;  /*             Ranges          */
+xtioaddr3_eqn     = ioaddr:[360] ;  /*******************************/
+xtioaddr4_eqn     = ioaddr:[380] ;
+xtioaddr5_eqn     = ioaddr:[3A0] ;
+xtioaddr6_eqn     = ioaddr:[3C0] ;
+xtioaddr7_eqn     = ioaddr:[3E0] ;
+
+/** Logic Equations **/
+
+CF_CS0		=( a4 # xtioaddr1_eqn)	& AEN;
+CF_CS1		=(!a4 # xtioaddr1_eqn)	& AEN;
+CF_RESET	=!RESETDRV;
+LED		=!CF_DASP;
+
+

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 0)
+  (lib (name "xt-cf-rescue")(type "Legacy")(uri "${KIPRJMOD}/xt-cf-rescue.lib")(options "")(descr ""))
+)

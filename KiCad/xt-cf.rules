@@ -1,0 +1,102 @@
+
+(rules PCB xt-cf.dsn
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout on)
+    (autoroute on)
+    (postroute off)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1)
+    (layer_rule Front
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.9)
+    )
+    (layer_rule Back
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 3.2)
+    )
+  )
+  (rule
+    (width 368.4)
+    (clearance 254.0)
+    (clearance 184.2 (type smd_to_turn_gap))
+    (clearance 63.6 (type smd))
+    (clearance 254.0 (type "kicad_default"))
+    (clearance 254.0 (type Power))
+  )
+  (padstack "Via[0-1]_889:635_um"
+    (shape
+      (circle Front 889.0 0.0 0.0)
+    )
+    (shape
+      (circle Back 889.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_889:635_um" "Via[0-1]_889:635_um" default
+  )
+  (via 
+    "Via[0-1]_889:635_um-kicad_default" "Via[0-1]_889:635_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_889:635_um-Power" "Via[0-1]_889:635_um" Power
+  )
+  (via_rule
+    default "Via[0-1]_889:635_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_889:635_um-kicad_default"
+  )
+  (via_rule
+    Power "Via[0-1]_889:635_um-Power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 368.4)
+    )
+    (circuit 
+      (use_layer Front Back)
+    )
+  )
+  (class "kicad_default"
+    /A0 /A1 /A10 /A11 /A12 /A13 /A14 /A15
+    /A16 /A17 /A18 /A19 /A2 /A3 /A4 /A5
+    /A6 /A7 /A8 /A9 /AEN "/CF_DMARQ" "/CF_IORDY" /D0
+    /D1 /D2 /D3 /D4 /D5 /D6 /D7 /RESETDRV
+    "/~{CF_CS0}" "/~{CF_CS1}" "/~{CF_DASP}" "/~{CF_RESET}" /~{IOR} /~{IOW} /~{MEMR} /~{MEMW}
+    "/~{ROM_CS}" "Net-(D1-K)" "unconnected-(P1-D8-Pad47)" "unconnected-(P1-D11-Pad27)" "unconnected-(P1-INTRQ-Pad37)" "unconnected-(P1-D9-Pad48)" "unconnected-(P1-D14-Pad30)" "unconnected-(P1-D15-Pad31)"
+    "unconnected-(P1-D12-Pad28)" "unconnected-(P1-~{IOCS16}-Pad24)" "unconnected-(P1-~{CD2}-Pad25)" "unconnected-(P1-~{CD1}-Pad26)" "unconnected-(P1-D10-Pad49)" "unconnected-(P1-~{VS2}-Pad40)" "unconnected-(P1-D13-Pad29)" "unconnected-(P1-~{PDIAG}-Pad46)"
+    "unconnected-(P1-~{VS1}-Pad33)" "/ROM_HI" "unconnected-(U2-VPP-Pad1)" "unconnected-(U2-~{PGM}-Pad27)" "Net-(U1-IO22)"
+    (clearance_class "kicad_default")
+    (via_rule "kicad_default")
+    (rule
+      (width 368.4)
+    )
+    (circuit 
+      (use_layer Front Back)
+    )
+  )
+  (class Power
+    GND VCC
+    (clearance_class Power)
+    (via_rule Power)
+    (rule
+      (width 632.4)
+    )
+    (circuit 
+      (use_layer Front Back)
+    )
+  )
+)

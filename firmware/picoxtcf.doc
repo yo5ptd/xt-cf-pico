@@ -1,0 +1,95 @@
+
+*******************************************************************************
+                                   Iodecode
+*******************************************************************************
+
+CUPL(WM)        5.0a Serial# MW-10400000
+Device          g16v8as  Library DLIB-h-40-2
+Created         Thu Mar 20 21:00:33 2025
+Name            Iodecode
+Partno          CA0010
+Revision        02
+Date            3/20/25
+Designer        Antal Florian
+Company         none
+Assembly        PC Multi-Function
+Location        U1
+
+===============================================================================
+                            Expanded Product Terms
+===============================================================================
+
+CF_CS0 =>
+    AEN & !a4 & !a5 & !a6 & !a7 & a8 & a9
+  # AEN & a4
+
+CF_CS1 =>
+    AEN & !a4
+
+CF_RESET =>
+    !RESETDRV
+
+LED =>
+    !CF_DASP
+
+ioaddr =>
+    a9 , a8 , a7 , a6 , a5 , a4
+
+xtioaddr1_eqn =>
+    !a4 & !a5 & !a6 & !a7 & a8 & a9
+
+xtioaddr2_eqn =>
+    !a4 & a5 & !a6 & !a7 & a8 & a9
+
+xtioaddr3_eqn =>
+    !a4 & a5 & a6 & !a7 & a8 & a9
+
+xtioaddr4_eqn =>
+    !a4 & !a5 & !a6 & a7 & a8 & a9
+
+xtioaddr5_eqn =>
+    !a4 & a5 & !a6 & a7 & a8 & a9
+
+xtioaddr6_eqn =>
+    !a4 & !a5 & a6 & a7 & a8 & a9
+
+xtioaddr7_eqn =>
+    !a4 & a5 & a6 & a7 & a8 & a9
+
+
+===============================================================================
+                                 Symbol Table
+===============================================================================
+
+Pin Variable                                    Pterms   Max     Min    
+Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
+--- --------            ---     ---     ----    ------  ------  -----   
+
+    AEN                         11       V        -       -       -     
+ !  CF_CS0                      18       V        2       8       1     
+ !  CF_CS1                      19       V        1       8       1     
+ !  CF_DASP                     9        V        -       -       -     
+ !  CF_RESET                    16       V        1       8       1     
+    LED                         13       V        1       8       1     
+    RESETDRV                    8        V        -       -       -     
+    a4                          6        V        -       -       -     
+    a5                          5        V        -       -       -     
+    a6                          4        V        -       -       -     
+    a7                          3        V        -       -       -     
+    a8                          2        V        -       -       -     
+    a9                          1        V        -       -       -     
+    ioaddr                      0        F        -       -       -     
+    xtioaddr1_eqn               0        I        1       -       -     
+    xtioaddr2_eqn               0        I        1       -       -     
+    xtioaddr3_eqn               0        I        1       -       -     
+    xtioaddr4_eqn               0        I        1       -       -     
+    xtioaddr5_eqn               0        I        1       -       -     
+    xtioaddr6_eqn               0        I        1       -       -     
+    xtioaddr7_eqn               0        I        1       -       -     
+
+
+LEGEND    D : default variable         F : field      G : group
+          I : intermediate variable    N : node       M : extended node
+          U : undefined                V : variable   X : extended variable
+          T : function
+
