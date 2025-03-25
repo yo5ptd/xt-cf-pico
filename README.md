@@ -1,14 +1,15 @@
-# xt-cf-pico
-8-bit ISA interface for Compact Flash cards with a single CPLD
+# xt-cf-pico   (work in progrss)
+8-bit ISA interface for Compact Flash cards with a single CPLD  (TODO: PLD and JED files need writing)
 
 ## Introduction
 
 XT-CF-Pico is a remake of Sergey Kiselev  [xt-cf-lite-v4]  efectively reverting glue logic IC back to CPLD but still using through hole components. This card allows connecting a Compact Flash (CF) card to computers with ISA bus and using it as a mass storage device. The card also supports BIOS extension ROM.
 
 * 16 KiB EEPROM (28C128) with either 8 or 16k images, no flash ROM.
-* no jumpers, everything you configure in the CPLD
+* no jumpers, everything you configure in the CPLD (GAL20V8, still available on Aliexpress, used in projects like C64 PLA20V8)
 
 ## Hardware Documentation
+The idea was to use components that were available late '80s
 
 ### Schematic and PCB Layout
 
