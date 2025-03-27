@@ -8,10 +8,10 @@ XT-CF-Pico is a remake of Sergey Kiselev  [xt-cf-lite-v4]  efectively reverting 
 * 16 KiB EEPROM (28C128) with either 8 or 16k images, no flash ROM.
 * no jumpers, everything you configure in the PLD (GAL20V8, still available on Aliexpress, used in projects like C64 PLA20V8)
 
-This is my first ISA board and first PLD design, it should work only in theory, but not yet tested, so use at your own risk!
+This is my first ISA board and first PLD design, it should work only in theory, but not yet tested, so use at your own risk! My motivation was that there were too many components and a lot of unused pins on Sergey's design.
 
 ## Hardware Documentation
-The idea was to use components that were available late '80s, keeping Sergey's idea of having them all through hole (except of course the CF adapter).
+The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter).
 
 ### Schematic and PCB Layout
 
@@ -36,3 +36,15 @@ Resistor       | R2        | 10 kOhm, 1/4 W                          | 0        
 IC             | U1        | 27C128 EEPROM                           | 1        | mbm27c128
 IC Socket      | U1        | 28 pin 600 mil (wide) DIP socket        | 1        | optional
 IC Socket      | U2        | 24 pin 300 mil (narrow) DIP socket      | 1        | optional
+
+
+
+### Cost estimate for 5 boards
+
+PCB - 4.17 USD including shipping jlpcb
+GAL20V8 - 3.47 USD including shipping aliexpress
+28C129 - 5.49 USD including shipping aliexpress
+101D-TAAA-R01 attend - 10.4 including shipping from tme
+passives - 1USD or less (you can order them from tme to save on shipping)
+
+Results a cost of around 5 USD per board (not including labor to assemble and program)
