@@ -41,10 +41,10 @@ IC Socket      | U2        | 24 pin 300 mil (narrow) DIP socket      | 1        
 
 ### Cost estimate for 5 boards
 
-PCB - 4.17 USD including shipping jlpcb
-GAL20V8 - 3.47 USD including shipping aliexpress
-28C129 - 5.49 USD including shipping aliexpress
-101D-TAAA-R01 attend - 10.4 including shipping from tme
-passives - 1USD or less (you can order them from tme to save on shipping)
+* PCB - 4.17 USD including shipping jlpcb
+* GAL20V8 - 3.47 USD including shipping aliexpress
+* 28C129 - 5.49 USD including shipping aliexpress
+* 101D-TAAA-R01 attend - 10.4 including shipping from tme
+* passives - 1USD or less (you can order them from tme to save on shipping)
 
 Results a cost of around 5 USD per board (not including labor to assemble and program)
