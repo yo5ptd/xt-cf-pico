@@ -4,13 +4,13 @@
 *******************************************************************************
 
 CUPL(WM)        5.0a Serial# MW-10400000
-Device          g16v8as  Library DLIB-h-40-2
-Created         Thu Mar 20 21:00:33 2025
+Device          g20v8as  Library DLIB-h-40-1
+Created         Thu Mar 27 10:38:31 2025
 Name            Iodecode
 Partno          CA0010
 Revision        02
 Date            3/20/25
-Designer        Antal Florian
+Designer        yo5ptd
 Company         none
 Assembly        PC Multi-Function
 Location        U1
@@ -32,8 +32,17 @@ CF_RESET =>
 LED =>
     !CF_DASP
 
+ROM_CS =>
+    !a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
+
+ROM_HI =>
+    a13
+
 ioaddr =>
     a9 , a8 , a7 , a6 , a5 , a4
+
+romaddr =>
+    a19 , a18 , a17 , a16 , a15 , a14 , a13
 
 xtioaddr1_eqn =>
     !a4 & !a5 & !a6 & !a7 & a8 & a9
@@ -56,6 +65,87 @@ xtioaddr6_eqn =>
 xtioaddr7_eqn =>
     !a4 & a5 & a6 & a7 & a8 & a9
 
+xtromaddr10_eqn =>
+    a13 & !a14 & !a15 & a16 & !a17 & a18 & a19
+
+xtromaddr11_eqn =>
+    !a13 & a14 & !a15 & a16 & !a17 & a18 & a19
+
+xtromaddr12_eqn =>
+    a13 & a14 & !a15 & a16 & !a17 & a18 & a19
+
+xtromaddr13_eqn =>
+    !a13 & !a14 & a15 & a16 & !a17 & a18 & a19
+
+xtromaddr14_eqn =>
+    a13 & !a14 & a15 & a16 & !a17 & a18 & a19
+
+xtromaddr15_eqn =>
+    !a13 & a14 & a15 & a16 & !a17 & a18 & a19
+
+xtromaddr16_eqn =>
+    a13 & a14 & a15 & a16 & !a17 & a18 & a19
+
+xtromaddr17_eqn =>
+    !a13 & !a14 & !a15 & !a16 & a17 & a18 & a19
+
+xtromaddr18_eqn =>
+    a13 & !a14 & !a15 & !a16 & a17 & a18 & a19
+
+xtromaddr19_eqn =>
+    !a13 & a14 & !a15 & !a16 & a17 & a18 & a19
+
+xtromaddr1_eqn =>
+    !a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr20_eqn =>
+    a13 & a14 & !a15 & !a16 & a17 & a18 & a19
+
+xtromaddr21_eqn =>
+    !a13 & !a14 & a15 & !a16 & a17 & a18 & a19
+
+xtromaddr22_eqn =>
+    a13 & !a14 & a15 & !a16 & a17 & a18 & a19
+
+xtromaddr23_eqn =>
+    !a13 & a14 & a15 & !a16 & a17 & a18 & a19
+
+xtromaddr24_eqn =>
+    a13 & a14 & a15 & !a16 & a17 & a18 & a19
+
+xtromaddr25_eqn =>
+    !a13 & !a14 & !a15 & a16 & a17 & a18 & a19
+
+xtromaddr26_eqn =>
+    a13 & !a14 & !a15 & a16 & a17 & a18 & a19
+
+xtromaddr27_eqn =>
+    !a13 & a14 & !a15 & a16 & a17 & a18 & a19
+
+xtromaddr2_eqn =>
+    a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr3_eqn =>
+    !a13 & a14 & !a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr4_eqn =>
+    a13 & a14 & !a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr5_eqn =>
+    !a13 & !a14 & a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr6_eqn =>
+    a13 & !a14 & a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr7_eqn =>
+    !a13 & a14 & a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr8_eqn =>
+    a13 & a14 & a15 & !a16 & !a17 & a18 & a19
+
+xtromaddr9_eqn =>
+    !a13 & !a14 & !a15 & a16 & !a17 & a18 & a19
+
 
 ===============================================================================
                                  Symbol Table
@@ -65,20 +155,30 @@ Pin Variable                                    Pterms   Max     Min
 Pol   Name              Ext     Pin     Type     Used   Pterms  Level   
 --- --------            ---     ---     ----    ------  ------  -----   
 
-    AEN                         11       V        -       -       -     
- !  CF_CS0                      18       V        2       8       1     
- !  CF_CS1                      19       V        1       8       1     
- !  CF_DASP                     9        V        -       -       -     
- !  CF_RESET                    16       V        1       8       1     
-    LED                         13       V        1       8       1     
-    RESETDRV                    8        V        -       -       -     
+    AEN                         15       V        -       -       -     
+ !  CF_CS0                      16       V        2       8       1     
+ !  CF_CS1                      17       V        1       8       1     
+ !  CF_DASP                     21       V        -       -       -     
+ !  CF_RESET                    20       V        1       8       1     
+    LED                         22       V        1       8       1     
+    RESETDRV                    23       V        -       -       -     
+ !  ROM_CS                      18       V        1       8       1     
+    ROM_HI                      19       V        1       8       1     
     a4                          6        V        -       -       -     
     a5                          5        V        -       -       -     
     a6                          4        V        -       -       -     
     a7                          3        V        -       -       -     
     a8                          2        V        -       -       -     
     a9                          1        V        -       -       -     
+    a13                         14       V        -       -       -     
+    a14                         13       V        -       -       -     
+    a15                         11       V        -       -       -     
+    a16                         10       V        -       -       -     
+    a17                         9        V        -       -       -     
+    a18                         8        V        -       -       -     
+    a19                         7        V        -       -       -     
     ioaddr                      0        F        -       -       -     
+    romaddr                     0        F        -       -       -     
     xtioaddr1_eqn               0        I        1       -       -     
     xtioaddr2_eqn               0        I        1       -       -     
     xtioaddr3_eqn               0        I        1       -       -     
@@ -86,10 +186,141 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     xtioaddr5_eqn               0        I        1       -       -     
     xtioaddr6_eqn               0        I        1       -       -     
     xtioaddr7_eqn               0        I        1       -       -     
+    xtromaddr10_eqn             0        I        1       -       -     
+    xtromaddr11_eqn             0        I        1       -       -     
+    xtromaddr12_eqn             0        I        1       -       -     
+    xtromaddr13_eqn             0        I        1       -       -     
+    xtromaddr14_eqn             0        I        1       -       -     
+    xtromaddr15_eqn             0        I        1       -       -     
+    xtromaddr16_eqn             0        I        1       -       -     
+    xtromaddr17_eqn             0        I        1       -       -     
+    xtromaddr18_eqn             0        I        1       -       -     
+    xtromaddr19_eqn             0        I        1       -       -     
+    xtromaddr1_eqn              0        I        1       -       -     
+    xtromaddr20_eqn             0        I        1       -       -     
+    xtromaddr21_eqn             0        I        1       -       -     
+    xtromaddr22_eqn             0        I        1       -       -     
+    xtromaddr23_eqn             0        I        1       -       -     
+    xtromaddr24_eqn             0        I        1       -       -     
+    xtromaddr25_eqn             0        I        1       -       -     
+    xtromaddr26_eqn             0        I        1       -       -     
+    xtromaddr27_eqn             0        I        1       -       -     
+    xtromaddr2_eqn              0        I        1       -       -     
+    xtromaddr3_eqn              0        I        1       -       -     
+    xtromaddr4_eqn              0        I        1       -       -     
+    xtromaddr5_eqn              0        I        1       -       -     
+    xtromaddr6_eqn              0        I        1       -       -     
+    xtromaddr7_eqn              0        I        1       -       -     
+    xtromaddr8_eqn              0        I        1       -       -     
+    xtromaddr9_eqn              0        I        1       -       -     
 
 
 LEGEND    D : default variable         F : field      G : group
           I : intermediate variable    N : node       M : extended node
           U : undefined                V : variable   X : extended variable
           T : function
+
+
+===============================================================================
+                                   Fuse Plot
+===============================================================================
+
+Syn   02704 - Ac0   02705 x 
+
+Pin #22  02560  Pol -  02632  Ac1 x 
+ 00000 --------------x------------------------- 
+ 00040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00080 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00120 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00160 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00200 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00240 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00280 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #21  02561  Pol x  02633  Ac1 - 
+ 00320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00360 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00400 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00440 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00480 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00560 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00600 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #20  02562  Pol x  02634  Ac1 x 
+ 00640 -------x-------------------------------- 
+ 00680 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00720 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00760 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00800 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00840 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 00920 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #19  02563  Pol -  02635  Ac1 x 
+ 00960 ----------------------------------x----- 
+ 01000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01080 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01120 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01160 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01200 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01240 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #18  02564  Pol x  02636  Ac1 x 
+ 01280 --------------------x---x----x---x-x-x-x 
+ 01320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01360 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01400 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01440 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01480 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01560 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #17  02565  Pol x  02637  Ac1 x 
+ 01600 -----------------x------------x--------- 
+ 01640 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01680 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01720 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01760 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01800 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01840 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #16  02566  Pol x  02638  Ac1 x 
+ 01920 x-x--x---x---x---x------------x--------- 
+ 01960 ----------------x-------------x--------- 
+ 02000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02080 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02120 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02160 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02200 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+Pin #15  02567  Pol x  02639  Ac1 - 
+ 02240 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02280 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02360 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02400 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02440 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02480 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 02520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+
+
+LEGEND    X : fuse not blown 
+          - : fuse blown 
+
+===============================================================================
+                                 Chip Diagram
+===============================================================================
+
+                               ______________
+                              |   Iodecode   |
+                       a9 x---|1           24|---x Vcc                      
+                       a8 x---|2           23|---x RESETDRV                 
+                       a7 x---|3           22|---x LED                      
+                       a6 x---|4           21|---x !CF_DASP                 
+                       a5 x---|5           20|---x !CF_RESET                
+                       a4 x---|6           19|---x ROM_HI                   
+                      a19 x---|7           18|---x !ROM_CS                  
+                      a18 x---|8           17|---x !CF_CS1                  
+                      a17 x---|9           16|---x !CF_CS0                  
+                      a16 x---|10          15|---x AEN                      
+                      a15 x---|11          14|---x a13                      
+                      GND x---|12          13|---x a14                      
+                              |______________|
 

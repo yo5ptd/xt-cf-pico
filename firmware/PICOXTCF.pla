@@ -1,0 +1,33 @@
+# Berkeley PLA format generated using
+#
+# CUPL(WM)        5.0a Serial# MW-10400000
+# Device          g20v8as  Library DLIB-h-40-1
+# Created         Thu Mar 27 10:38:31 2025
+# Name            Iodecode
+# Partno          CA0010
+# Revision        02
+# Date            3/20/25
+# Designer        yo5ptd
+# Company         none
+# Assembly        PC Multi-Function
+# Location        U1
+#
+# Inputs  AEN !CF_CS0 !CF_CS1 !CF_DASP 
+#         !CF_RESET LED RESETDRV !ROM_CS 
+#         ROM_HI a4 a5 a6 
+#         a7 a8 a9 a13 
+#         a14 a15 a16 a17 
+#         a18 a19 
+# Outputs !CF_CS0 !CF_CS1 !CF_RESET LED 
+#         !ROM_CS ROM_HI 
+.i 22
+.o 6
+.p 7
+1--------000011------- 1~~~~~
+1--------1------------ 1~~~~~
+1--------0------------ ~1~~~~
+------0--------------- ~~1~~~
+---0------------------ ~~~1~~
+---------------0000011 ~~~~1~
+---------------1------ ~~~~~1
+.end

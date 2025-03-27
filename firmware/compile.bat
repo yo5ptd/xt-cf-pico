@@ -1,3 +1,3 @@
-set LIBCUPL=c:\wincupl\shared\atmel.dl
-c:\wincupl\shared\CUPL G20V8A PICOXTCF.PLD
+set LIBCUPL=.\cupl\atmel.dl
+cupl\cupl -jlexfbou cupl\atmel.dl G20V8A PICOXTCF.PLD
 CMD
