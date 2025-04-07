@@ -16,8 +16,8 @@ Device          G20V8A;
 
 /** Inputs **/
 
-pin [1..6] 	= [a9..4] ;	/* system addresses a4 - a9     */
-pin [7..11,13,14] 	= [a19..13] ;	/* system addresses a13 - a19     */
+pin [1..6] 	= [a4..9] ;	/* system addresses a4 - a9     */
+pin [7..11,13,14] 	= [a13..19] ;	/* system addresses a13 - a19     */
 pin 21    	= !CF_DASP ;	/* same signal as ioacc         */
 pin 23	  	= RESETDRV;	/* for !CF_RESET		*/
 pin 15     	= AEN ;    	/* ISA bus AEN       		*/
@@ -83,7 +83,7 @@ xtromaddr27_eqn     = romaddr:[F4000] ;  /*     BIOS ROM Address        */
 
 CF_CS0		=( a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
 CF_CS1		=(!a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
-ROM_CS		=xtromaddr1_eqn; /*change xtromaddr1..27_eqn rom addr range*/
+ROM_CS		=xtromaddr7_eqn; /*change xtromaddr1..27_eqn rom addr range*/
 CF_RESET	=!RESETDRV;
 LED		=!CF_DASP;
 ROM_HI		=a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/

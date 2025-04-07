@@ -13,6 +13,8 @@ This is my first ISA board and first PLD design, it should work only in theory, 
 ## Hardware Documentation
 The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter).
 
+Download latest bios from https://www.xtideuniversalbios.org/binaries/ (I used IDE_ATL.BIN) and configure primary IDE (with xtidecfg.com) for XT CF PIO8 (I used addr 0x300). 
+
 ### Schematic and PCB Layout
 
 [Schematic](KiCad/XT-CF-Pico-Schematic.pdf)

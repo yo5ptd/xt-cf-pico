@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# MW-10400000
 Device          g20v8as  Library DLIB-h-40-1
-Created         Thu Mar 27 10:38:31 2025
+Created         Mon Apr 07 13:38:50 2025
 Name            Iodecode
 Partno          CA0010
 Revision        02
@@ -33,7 +33,7 @@ LED =>
     !CF_DASP
 
 ROM_CS =>
-    !a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
+    !a13 & a14 & a15 & !a16 & !a17 & a18 & a19
 
 ROM_HI =>
     a13
@@ -164,19 +164,19 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     RESETDRV                    23       V        -       -       -     
  !  ROM_CS                      18       V        1       8       1     
     ROM_HI                      19       V        1       8       1     
-    a4                          6        V        -       -       -     
-    a5                          5        V        -       -       -     
-    a6                          4        V        -       -       -     
-    a7                          3        V        -       -       -     
-    a8                          2        V        -       -       -     
-    a9                          1        V        -       -       -     
-    a13                         14       V        -       -       -     
-    a14                         13       V        -       -       -     
-    a15                         11       V        -       -       -     
+    a4                          1        V        -       -       -     
+    a5                          2        V        -       -       -     
+    a6                          3        V        -       -       -     
+    a7                          4        V        -       -       -     
+    a8                          5        V        -       -       -     
+    a9                          6        V        -       -       -     
+    a13                         7        V        -       -       -     
+    a14                         8        V        -       -       -     
+    a15                         9        V        -       -       -     
     a16                         10       V        -       -       -     
-    a17                         9        V        -       -       -     
-    a18                         8        V        -       -       -     
-    a19                         7        V        -       -       -     
+    a17                         11       V        -       -       -     
+    a18                         13       V        -       -       -     
+    a19                         14       V        -       -       -     
     ioaddr                      0        F        -       -       -     
     romaddr                     0        F        -       -       -     
     xtioaddr1_eqn               0        I        1       -       -     
@@ -255,7 +255,7 @@ Pin #20  02562  Pol x  02634  Ac1 x
  00880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  00920 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #19  02563  Pol -  02635  Ac1 x 
- 00960 ----------------------------------x----- 
+ 00960 --------------------x------------------- 
  01000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01080 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -264,7 +264,7 @@ Pin #19  02563  Pol -  02635  Ac1 x
  01200 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01240 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #18  02564  Pol x  02636  Ac1 x 
- 01280 --------------------x---x----x---x-x-x-x 
+ 01280 ---------------------x--x---x----xx--xx- 
  01320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01360 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01400 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -273,7 +273,7 @@ Pin #18  02564  Pol x  02636  Ac1 x
  01520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01560 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #17  02565  Pol x  02637  Ac1 x 
- 01600 -----------------x------------x--------- 
+ 01600 ---x--------------------------x--------- 
  01640 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01680 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01720 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -282,8 +282,8 @@ Pin #17  02565  Pol x  02637  Ac1 x
  01840 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #16  02566  Pol x  02638  Ac1 x 
- 01920 x-x--x---x---x---x------------x--------- 
- 01960 ----------------x-------------x--------- 
+ 01920 -x-x-x---x--x---x-------------x--------- 
+ 01960 --x---------------------------x--------- 
  02000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  02040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  02080 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -310,17 +310,17 @@ LEGEND    X : fuse not blown
 
                                ______________
                               |   Iodecode   |
-                       a9 x---|1           24|---x Vcc                      
-                       a8 x---|2           23|---x RESETDRV                 
-                       a7 x---|3           22|---x LED                      
-                       a6 x---|4           21|---x !CF_DASP                 
-                       a5 x---|5           20|---x !CF_RESET                
-                       a4 x---|6           19|---x ROM_HI                   
-                      a19 x---|7           18|---x !ROM_CS                  
-                      a18 x---|8           17|---x !CF_CS1                  
-                      a17 x---|9           16|---x !CF_CS0                  
+                       a4 x---|1           24|---x Vcc                      
+                       a5 x---|2           23|---x RESETDRV                 
+                       a6 x---|3           22|---x LED                      
+                       a7 x---|4           21|---x !CF_DASP                 
+                       a8 x---|5           20|---x !CF_RESET                
+                       a9 x---|6           19|---x ROM_HI                   
+                      a13 x---|7           18|---x !ROM_CS                  
+                      a14 x---|8           17|---x !CF_CS1                  
+                      a15 x---|9           16|---x !CF_CS0                  
                       a16 x---|10          15|---x AEN                      
-                      a15 x---|11          14|---x a13                      
-                      GND x---|12          13|---x a14                      
+                      a17 x---|11          14|---x a19                      
+                      GND x---|12          13|---x a18                      
                               |______________|
 

@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Thu Mar 27 10:38:31 2025
+Created Mon Apr 07 13:38:50 2025
 
   1:Name            Iodecode;
   2:Partno          CA0010;
@@ -23,8 +23,8 @@ Created Thu Mar 27 10:38:31 2025
  16:
  17:/** Inputs **/
  18:
- 19:pin [1..6]      = [a9..4] ;     /* system addresses a4 - a9     */
- 20:pin [7..11,13,14]       = [a19..13] ;   /* system addresses a13 - a19     */
+ 19:pin [1..6]      = [a4..9] ;     /* system addresses a4 - a9     */
+ 20:pin [7..11,13,14]       = [a13..19] ;   /* system addresses a13 - a19     */
  21:pin 21          = !CF_DASP ;    /* same signal as ioacc         */
  22:pin 23          = RESETDRV;     /* for !CF_RESET                */
  23:pin 15          = AEN ;         /* ISA bus AEN                  */
@@ -64,7 +64,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 2
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Thu Mar 27 10:38:31 2025
+Created Mon Apr 07 13:38:50 2025
 
  54:xtromaddr9_eqn     = romaddr:[D0000] ;  /*     BIOS ROM Address        */
  55:xtromaddr10_eqn     = romaddr:[D2000] ;  /*     BIOS ROM Address        */
@@ -98,7 +98,7 @@ Created Thu Mar 27 10:38:31 2025
  83:
  84:CF_CS0          =( a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
  85:CF_CS1          =(!a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
- 86:ROM_CS          =xtromaddr1_eqn; /*change xtromaddr1..27_eqn rom addr range*/
+ 86:ROM_CS          =xtromaddr7_eqn; /*change xtromaddr1..27_eqn rom addr range*/
  87:CF_RESET        =!RESETDRV;
  88:LED             =!CF_DASP;
  89:ROM_HI          =a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/
@@ -109,5 +109,5 @@ Created Thu Mar 27 10:38:31 2025
 
 
 
-Jedec Fuse Checksum       (2aaa)
-Jedec Transmit Checksum   (de5b)
+Jedec Fuse Checksum       (2ae5)
+Jedec Transmit Checksum   (de51)
