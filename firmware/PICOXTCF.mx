@@ -6,7 +6,7 @@ Designer        yo5ptd;
 Company         none;
 Assembly        PC Multi-Function;
 Location        U1;
-Device          G20V8A;
+Device          G20V8;
 
 /************************************************************************/
 /* This device generates the chip select signals for the I/O functions. */
@@ -34,44 +34,24 @@ pin 18     = !ROM_CS ;          /* ROM address chip select*/
 /** Declarations and Intermediate Variable Definitions  **/
 
 field   ioaddr    = [a9..4] ;
-xtioaddr1_eqn     = ioaddr:[300] ;  /*          I/O Address        */
-xtioaddr2_eqn     = ioaddr:[320] ;  /*             Ranges          */
-xtioaddr3_eqn     = ioaddr:[360] ;  /*******************************/
-xtioaddr4_eqn     = ioaddr:[380] ;
-xtioaddr5_eqn     = ioaddr:[3A0] ;
-xtioaddr6_eqn     = ioaddr:[3C0] ;
-xtioaddr7_eqn     = ioaddr:[3E0] ;
+xtioaddr1_eqn     = ioaddr:[300..31F] ;  /*          I/O Address        */
+xtioaddr2_eqn     = ioaddr:[320..33F] ;  /*             Ranges          */
+xtioaddr3_eqn     = ioaddr:[360..37F] ;  /*******************************/
+xtioaddr4_eqn     = ioaddr:[380..39F] ;
+xtioaddr5_eqn     = ioaddr:[3A0..3BF] ;
+xtioaddr6_eqn     = ioaddr:[3C0..3DF] ;
+xtioaddr7_eqn     = ioaddr:[3E0..3FF] ;
 
 field   romaddr    = [a19..13] ;
-xtromaddr1_eqn     = romaddr:[C0000] ;  /*     BIOS ROM Address        */
-xtromaddr2_eqn     = romaddr:[C2000] ;  /*     BIOS ROM Address        */
-xtromaddr3_eqn     = romaddr:[C4000] ;  /*     BIOS ROM Address        */
-xtromaddr4_eqn     = romaddr:[C6000] ;  /*     BIOS ROM Address        */
-xtromaddr5_eqn     = romaddr:[C8000] ;  /*     BIOS ROM Address        */
-xtromaddr6_eqn     = romaddr:[CA000] ;  /*     BIOS ROM Address        */
-xtromaddr7_eqn     = romaddr:[CC000] ;  /*     BIOS ROM Address        */
-xtromaddr8_eqn     = romaddr:[CE000] ;  /*     BIOS ROM Address        */
-xtromaddr9_eqn     = romaddr:[D0000] ;  /*     BIOS ROM Address        */
-xtromaddr10_eqn     = romaddr:[D2000] ;  /*     BIOS ROM Address        */
-xtromaddr11_eqn     = romaddr:[D4000] ;  /*     BIOS ROM Address        */
-xtromaddr12_eqn     = romaddr:[D6000] ;  /*     BIOS ROM Address        */
-xtromaddr13_eqn     = romaddr:[D8000] ;  /*     BIOS ROM Address        */
-xtromaddr14_eqn     = romaddr:[DA000] ;  /*     BIOS ROM Address        */
-xtromaddr15_eqn     = romaddr:[DC000] ;  /*     BIOS ROM Address        */
-xtromaddr16_eqn     = romaddr:[DE000] ;  /*     BIOS ROM Address        */
-xtromaddr17_eqn     = romaddr:[E0000] ;  /*     BIOS ROM Address        */
-xtromaddr18_eqn     = romaddr:[E2000] ;  /*     BIOS ROM Address        */
-xtromaddr19_eqn     = romaddr:[E4000] ;  /*     BIOS ROM Address        */
-xtromaddr20_eqn     = romaddr:[E6000] ;  /*     BIOS ROM Address        */
-xtromaddr21_eqn     = romaddr:[E8000] ;  /*     BIOS ROM Address        */
-xtromaddr22_eqn     = romaddr:[EA000] ;  /*     BIOS ROM Address        */
-xtromaddr23_eqn     = romaddr:[EC000] ;  /*     BIOS ROM Address        */
-xtromaddr24_eqn     = romaddr:[EE000] ;  /*     BIOS ROM Address        */
-xtromaddr25_eqn     = romaddr:[F0000] ;  /*     BIOS ROM Address        */
-xtromaddr26_eqn     = romaddr:[F2000] ;  /*     BIOS ROM Address        */
-xtromaddr27_eqn     = romaddr:[F4000] ;  /*     BIOS ROM Address        */
 
+
+/** Logic Equations **/
+
+CF_CS0		=( a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
+CF_CS1		=(!a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
+ROM_CS		=romaddr:[D0000..D2FFF]; /*default, change if conflict*/
 /**
+    use 12kb or 16kb range (0x2FFF 0x3FFF) depending on BIOS size (8K NOT TESTED)
 
     Addresses 0xC0000 - 0xC6000 will conflict with EGA/VGA BIOS extension
     Addresses 0xC8000 - 0xCA000 might conflict with XT Hard Disk BIOS extension
@@ -79,11 +59,6 @@ xtromaddr27_eqn     = romaddr:[F4000] ;  /*     BIOS ROM Address        */
 
 **/
 
-/** Logic Equations **/
-
-CF_CS0		=( a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
-CF_CS1		=(!a4 # xtioaddr1_eqn)	& AEN; /*change xtioaddr1..7_eqn i/o range*/
-ROM_CS		=xtromaddr7_eqn; /*change xtromaddr1..27_eqn rom addr range*/
 CF_RESET	=!RESETDRV;
 LED		=!CF_DASP;
 ROM_HI		=a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/

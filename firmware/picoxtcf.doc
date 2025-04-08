@@ -5,7 +5,7 @@
 
 CUPL(WM)        5.0a Serial# MW-10400000
 Device          g20v8as  Library DLIB-h-40-1
-Created         Mon Apr 07 13:38:50 2025
+Created         Tue Apr 08 13:16:16 2025
 Name            Iodecode
 Partno          CA0010
 Revision        02
@@ -20,11 +20,12 @@ Location        U1
 ===============================================================================
 
 CF_CS0 =>
-    AEN & !a4 & !a5 & !a6 & !a7 & a8 & a9
+    AEN & !a5 & !a6 & !a7 & a8 & a9
   # AEN & a4
 
 CF_CS1 =>
-    AEN & !a4
+    AEN & !a5 & !a6 & !a7 & a8 & a9
+  # AEN & !a4
 
 CF_RESET =>
     !RESETDRV
@@ -33,7 +34,7 @@ LED =>
     !CF_DASP
 
 ROM_CS =>
-    !a13 & a14 & a15 & !a16 & !a17 & a18 & a19
+    !a14 & !a15 & a16 & !a17 & a18 & a19
 
 ROM_HI =>
     a13
@@ -45,106 +46,25 @@ romaddr =>
     a19 , a18 , a17 , a16 , a15 , a14 , a13
 
 xtioaddr1_eqn =>
-    !a4 & !a5 & !a6 & !a7 & a8 & a9
+    !a5 & !a6 & !a7 & a8 & a9
 
 xtioaddr2_eqn =>
-    !a4 & a5 & !a6 & !a7 & a8 & a9
+    a5 & !a6 & !a7 & a8 & a9
 
 xtioaddr3_eqn =>
-    !a4 & a5 & a6 & !a7 & a8 & a9
+    a5 & a6 & !a7 & a8 & a9
 
 xtioaddr4_eqn =>
-    !a4 & !a5 & !a6 & a7 & a8 & a9
+    !a5 & !a6 & a7 & a8 & a9
 
 xtioaddr5_eqn =>
-    !a4 & a5 & !a6 & a7 & a8 & a9
+    a5 & !a6 & a7 & a8 & a9
 
 xtioaddr6_eqn =>
-    !a4 & !a5 & a6 & a7 & a8 & a9
+    !a5 & a6 & a7 & a8 & a9
 
 xtioaddr7_eqn =>
-    !a4 & a5 & a6 & a7 & a8 & a9
-
-xtromaddr10_eqn =>
-    a13 & !a14 & !a15 & a16 & !a17 & a18 & a19
-
-xtromaddr11_eqn =>
-    !a13 & a14 & !a15 & a16 & !a17 & a18 & a19
-
-xtromaddr12_eqn =>
-    a13 & a14 & !a15 & a16 & !a17 & a18 & a19
-
-xtromaddr13_eqn =>
-    !a13 & !a14 & a15 & a16 & !a17 & a18 & a19
-
-xtromaddr14_eqn =>
-    a13 & !a14 & a15 & a16 & !a17 & a18 & a19
-
-xtromaddr15_eqn =>
-    !a13 & a14 & a15 & a16 & !a17 & a18 & a19
-
-xtromaddr16_eqn =>
-    a13 & a14 & a15 & a16 & !a17 & a18 & a19
-
-xtromaddr17_eqn =>
-    !a13 & !a14 & !a15 & !a16 & a17 & a18 & a19
-
-xtromaddr18_eqn =>
-    a13 & !a14 & !a15 & !a16 & a17 & a18 & a19
-
-xtromaddr19_eqn =>
-    !a13 & a14 & !a15 & !a16 & a17 & a18 & a19
-
-xtromaddr1_eqn =>
-    !a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr20_eqn =>
-    a13 & a14 & !a15 & !a16 & a17 & a18 & a19
-
-xtromaddr21_eqn =>
-    !a13 & !a14 & a15 & !a16 & a17 & a18 & a19
-
-xtromaddr22_eqn =>
-    a13 & !a14 & a15 & !a16 & a17 & a18 & a19
-
-xtromaddr23_eqn =>
-    !a13 & a14 & a15 & !a16 & a17 & a18 & a19
-
-xtromaddr24_eqn =>
-    a13 & a14 & a15 & !a16 & a17 & a18 & a19
-
-xtromaddr25_eqn =>
-    !a13 & !a14 & !a15 & a16 & a17 & a18 & a19
-
-xtromaddr26_eqn =>
-    a13 & !a14 & !a15 & a16 & a17 & a18 & a19
-
-xtromaddr27_eqn =>
-    !a13 & a14 & !a15 & a16 & a17 & a18 & a19
-
-xtromaddr2_eqn =>
-    a13 & !a14 & !a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr3_eqn =>
-    !a13 & a14 & !a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr4_eqn =>
-    a13 & a14 & !a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr5_eqn =>
-    !a13 & !a14 & a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr6_eqn =>
-    a13 & !a14 & a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr7_eqn =>
-    !a13 & a14 & a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr8_eqn =>
-    a13 & a14 & a15 & !a16 & !a17 & a18 & a19
-
-xtromaddr9_eqn =>
-    !a13 & !a14 & !a15 & a16 & !a17 & a18 & a19
+    a5 & a6 & a7 & a8 & a9
 
 
 ===============================================================================
@@ -157,7 +77,7 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
 
     AEN                         15       V        -       -       -     
  !  CF_CS0                      16       V        2       8       1     
- !  CF_CS1                      17       V        1       8       1     
+ !  CF_CS1                      17       V        2       8       1     
  !  CF_DASP                     21       V        -       -       -     
  !  CF_RESET                    20       V        1       8       1     
     LED                         22       V        1       8       1     
@@ -186,33 +106,6 @@ Pol   Name              Ext     Pin     Type     Used   Pterms  Level
     xtioaddr5_eqn               0        I        1       -       -     
     xtioaddr6_eqn               0        I        1       -       -     
     xtioaddr7_eqn               0        I        1       -       -     
-    xtromaddr10_eqn             0        I        1       -       -     
-    xtromaddr11_eqn             0        I        1       -       -     
-    xtromaddr12_eqn             0        I        1       -       -     
-    xtromaddr13_eqn             0        I        1       -       -     
-    xtromaddr14_eqn             0        I        1       -       -     
-    xtromaddr15_eqn             0        I        1       -       -     
-    xtromaddr16_eqn             0        I        1       -       -     
-    xtromaddr17_eqn             0        I        1       -       -     
-    xtromaddr18_eqn             0        I        1       -       -     
-    xtromaddr19_eqn             0        I        1       -       -     
-    xtromaddr1_eqn              0        I        1       -       -     
-    xtromaddr20_eqn             0        I        1       -       -     
-    xtromaddr21_eqn             0        I        1       -       -     
-    xtromaddr22_eqn             0        I        1       -       -     
-    xtromaddr23_eqn             0        I        1       -       -     
-    xtromaddr24_eqn             0        I        1       -       -     
-    xtromaddr25_eqn             0        I        1       -       -     
-    xtromaddr26_eqn             0        I        1       -       -     
-    xtromaddr27_eqn             0        I        1       -       -     
-    xtromaddr2_eqn              0        I        1       -       -     
-    xtromaddr3_eqn              0        I        1       -       -     
-    xtromaddr4_eqn              0        I        1       -       -     
-    xtromaddr5_eqn              0        I        1       -       -     
-    xtromaddr6_eqn              0        I        1       -       -     
-    xtromaddr7_eqn              0        I        1       -       -     
-    xtromaddr8_eqn              0        I        1       -       -     
-    xtromaddr9_eqn              0        I        1       -       -     
 
 
 LEGEND    D : default variable         F : field      G : group
@@ -264,7 +157,7 @@ Pin #19  02563  Pol -  02635  Ac1 x
  01200 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01240 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #18  02564  Pol x  02636  Ac1 x 
- 01280 ---------------------x--x---x----xx--xx- 
+ 01280 -------------------------x---x--x-x--xx- 
  01320 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01360 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01400 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -273,8 +166,8 @@ Pin #18  02564  Pol x  02636  Ac1 x
  01520 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01560 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #17  02565  Pol x  02637  Ac1 x 
- 01600 ---x--------------------------x--------- 
- 01640 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
+ 01600 -x---x---x--x---x-------------x--------- 
+ 01640 ---x--------------------------x--------- 
  01680 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01720 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01760 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
@@ -282,7 +175,7 @@ Pin #17  02565  Pol x  02637  Ac1 x
  01840 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  01880 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
 Pin #16  02566  Pol x  02638  Ac1 x 
- 01920 -x-x-x---x--x---x-------------x--------- 
+ 01920 -x---x---x--x---x-------------x--------- 
  01960 --x---------------------------x--------- 
  02000 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 
  02040 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 

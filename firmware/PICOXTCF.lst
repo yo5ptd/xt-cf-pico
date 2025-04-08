@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Mon Apr 07 13:38:50 2025
+Created Tue Apr 08 13:16:16 2025
 
   1:Name            Iodecode;
   2:Partno          CA0010;
@@ -13,7 +13,7 @@ Created Mon Apr 07 13:38:50 2025
   6:Company         none;
   7:Assembly        PC Multi-Function;
   8:Location        U1;
-  9:Device          G20V8A;
+  9:Device          G20V8;
  10:
  11:/************************************************************************/
  12:/* This device generates the chip select signals for the I/O functions. */
@@ -41,73 +41,48 @@ Created Mon Apr 07 13:38:50 2025
  34:/** Declarations and Intermediate Variable Definitions  **/
  35:
  36:field   ioaddr    = [a9..4] ;
- 37:xtioaddr1_eqn     = ioaddr:[300] ;  /*          I/O Address        */
- 38:xtioaddr2_eqn     = ioaddr:[320] ;  /*             Ranges          */
- 39:xtioaddr3_eqn     = ioaddr:[360] ;  /*******************************/
- 40:xtioaddr4_eqn     = ioaddr:[380] ;
- 41:xtioaddr5_eqn     = ioaddr:[3A0] ;
- 42:xtioaddr6_eqn     = ioaddr:[3C0] ;
- 43:xtioaddr7_eqn     = ioaddr:[3E0] ;
+ 37:xtioaddr1_eqn     = ioaddr:[300..31F] ;  /*          I/O Address        */
+ 38:xtioaddr2_eqn     = ioaddr:[320..33F] ;  /*             Ranges          */
+ 39:xtioaddr3_eqn     = ioaddr:[360..37F] ;  /*******************************/
+ 40:xtioaddr4_eqn     = ioaddr:[380..39F] ;
+ 41:xtioaddr5_eqn     = ioaddr:[3A0..3BF] ;
+ 42:xtioaddr6_eqn     = ioaddr:[3C0..3DF] ;
+ 43:xtioaddr7_eqn     = ioaddr:[3E0..3FF] ;
  44:
  45:field   romaddr    = [a19..13] ;
- 46:xtromaddr1_eqn     = romaddr:[C0000] ;  /*     BIOS ROM Address        */
- 47:xtromaddr2_eqn     = romaddr:[C2000] ;  /*     BIOS ROM Address        */
- 48:xtromaddr3_eqn     = romaddr:[C4000] ;  /*     BIOS ROM Address        */
- 49:xtromaddr4_eqn     = romaddr:[C6000] ;  /*     BIOS ROM Address        */
- 50:xtromaddr5_eqn     = romaddr:[C8000] ;  /*     BIOS ROM Address        */
- 51:xtromaddr6_eqn     = romaddr:[CA000] ;  /*     BIOS ROM Address        */
- 52:xtromaddr7_eqn     = romaddr:[CC000] ;  /*     BIOS ROM Address        */
- 53:xtromaddr8_eqn     = romaddr:[CE000] ;  /*     BIOS ROM Address        */
+ 46:
+ 47:
+ 48:/** Logic Equations **/
+ 49:
+ 50:CF_CS0          =( a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
+ 51:CF_CS1          =(!a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
+ 52:ROM_CS          =romaddr:[D0000..D2FFF]; /*default, change if conflict*/
+ 53:/**
 
 LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 2
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Mon Apr 07 13:38:50 2025
+Created Tue Apr 08 13:16:16 2025
 
- 54:xtromaddr9_eqn     = romaddr:[D0000] ;  /*     BIOS ROM Address        */
- 55:xtromaddr10_eqn     = romaddr:[D2000] ;  /*     BIOS ROM Address        */
- 56:xtromaddr11_eqn     = romaddr:[D4000] ;  /*     BIOS ROM Address        */
- 57:xtromaddr12_eqn     = romaddr:[D6000] ;  /*     BIOS ROM Address        */
- 58:xtromaddr13_eqn     = romaddr:[D8000] ;  /*     BIOS ROM Address        */
- 59:xtromaddr14_eqn     = romaddr:[DA000] ;  /*     BIOS ROM Address        */
- 60:xtromaddr15_eqn     = romaddr:[DC000] ;  /*     BIOS ROM Address        */
- 61:xtromaddr16_eqn     = romaddr:[DE000] ;  /*     BIOS ROM Address        */
- 62:xtromaddr17_eqn     = romaddr:[E0000] ;  /*     BIOS ROM Address        */
- 63:xtromaddr18_eqn     = romaddr:[E2000] ;  /*     BIOS ROM Address        */
- 64:xtromaddr19_eqn     = romaddr:[E4000] ;  /*     BIOS ROM Address        */
- 65:xtromaddr20_eqn     = romaddr:[E6000] ;  /*     BIOS ROM Address        */
- 66:xtromaddr21_eqn     = romaddr:[E8000] ;  /*     BIOS ROM Address        */
- 67:xtromaddr22_eqn     = romaddr:[EA000] ;  /*     BIOS ROM Address        */
- 68:xtromaddr23_eqn     = romaddr:[EC000] ;  /*     BIOS ROM Address        */
- 69:xtromaddr24_eqn     = romaddr:[EE000] ;  /*     BIOS ROM Address        */
- 70:xtromaddr25_eqn     = romaddr:[F0000] ;  /*     BIOS ROM Address        */
- 71:xtromaddr26_eqn     = romaddr:[F2000] ;  /*     BIOS ROM Address        */
- 72:xtromaddr27_eqn     = romaddr:[F4000] ;  /*     BIOS ROM Address        */
- 73:
- 74:/**
- 75:
- 76:    Addresses 0xC0000 - 0xC6000 will conflict with EGA/VGA BIOS extension
- 77:    Addresses 0xC8000 - 0xCA000 might conflict with XT Hard Disk BIOS extension
- 78:    Addresses 0xE0000 and up might conflict with system BIOS on newer motherboards
- 79:
- 80:**/
- 81:
- 82:/** Logic Equations **/
- 83:
- 84:CF_CS0          =( a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
- 85:CF_CS1          =(!a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
- 86:ROM_CS          =xtromaddr7_eqn; /*change xtromaddr1..27_eqn rom addr range*/
- 87:CF_RESET        =!RESETDRV;
- 88:LED             =!CF_DASP;
- 89:ROM_HI          =a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/
- 90:
- 91:
- 92:
- 93:
+ 54:    use 12kb or 16kb range (0x2FFF 0x3FFF) depending on BIOS size (8K NOT TESTED)
+ 55:
+ 56:    Addresses 0xC0000 - 0xC6000 will conflict with EGA/VGA BIOS extension
+ 57:    Addresses 0xC8000 - 0xCA000 might conflict with XT Hard Disk BIOS extension
+ 58:    Addresses 0xE0000 and up might conflict with system BIOS on newer motherboards
+ 59:
+ 60:**/
+ 61:
+ 62:CF_RESET        =!RESETDRV;
+ 63:LED             =!CF_DASP;
+ 64:ROM_HI          =a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/
+ 65:
+ 66:
+ 67:
+ 68:
 
 
 
-Jedec Fuse Checksum       (2ae5)
-Jedec Transmit Checksum   (de51)
+Jedec Fuse Checksum       (2f83)
+Jedec Transmit Checksum   (e61c)
