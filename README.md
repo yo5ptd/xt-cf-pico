@@ -1,4 +1,4 @@
-# xt-cf-pico   (needs testing when first boards arrive from jlpcb)
+# xt-cf-pico   (BIOS works, CF adapter not yet tested)
 8-bit ISA interface for Compact Flash cards with a single CPLD  
 
 ## Introduction
