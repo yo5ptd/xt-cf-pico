@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Tue Apr 08 13:16:16 2025
+Created Thu Apr 10 11:02:28 2025
 
   1:Name            Iodecode;
   2:Partno          CA0010;
@@ -25,64 +25,58 @@ Created Tue Apr 08 13:16:16 2025
  18:
  19:pin [1..6]      = [a4..9] ;     /* system addresses a4 - a9     */
  20:pin [7..11,13,14]       = [a13..19] ;   /* system addresses a13 - a19     */
- 21:pin 21          = !CF_DASP ;    /* same signal as ioacc         */
+ 21:pin 21          = CF_DASP ;     /* same signal as ioacc         */
  22:pin 23          = RESETDRV;     /* for !CF_RESET                */
  23:pin 15          = AEN ;         /* ISA bus AEN                  */
  24:
  25:/** Outputs **/
  26:
  27:pin 22     = LED ;              /* led driven from CF_DASP      */
- 28:pin 20     = !CF_RESET ;        /* inverted RESETDRV from ISA   */
- 29:pin 16     = !CF_CS0 ;          /* calculated CF_CS0            */
- 30:pin 17     = !CF_CS1 ;          /* calculated CF_CS1            */
+ 28:pin 20     = CF_RESET ;        /* inverted RESETDRV from ISA    */
+ 29:pin 16     = CF_CS0 ;          /* calculated CF_CS0             */
+ 30:pin 17     = CF_CS1 ;          /* calculated CF_CS1             */
  31:pin 19     = ROM_HI ;           /* either 2x8k Blocks or one 16k*/
  32:pin 18     = !ROM_CS ;          /* ROM address chip select*/
  33:
  34:/** Declarations and Intermediate Variable Definitions  **/
  35:
- 36:field   ioaddr    = [a9..4] ;
- 37:xtioaddr1_eqn     = ioaddr:[300..31F] ;  /*          I/O Address        */
- 38:xtioaddr2_eqn     = ioaddr:[320..33F] ;  /*             Ranges          */
- 39:xtioaddr3_eqn     = ioaddr:[360..37F] ;  /*******************************/
- 40:xtioaddr4_eqn     = ioaddr:[380..39F] ;
- 41:xtioaddr5_eqn     = ioaddr:[3A0..3BF] ;
- 42:xtioaddr6_eqn     = ioaddr:[3C0..3DF] ;
- 43:xtioaddr7_eqn     = ioaddr:[3E0..3FF] ;
+ 36:field   ioaddr    = [a9..5] ;
+ 37:xtioaddr_eqn     = ioaddr:['h'300] ;  /*          I/O Address        */
+ 38:/** valid also : 320,360,380,3A0,3C0,3E0 */
+ 39:
+ 40:field   romaddr    = [a19..14] ; 
+ 41:
+ 42:
+ 43:/** Logic Equations **/
  44:
- 45:field   romaddr    = [a19..13] ;
- 46:
+ 45:CF_CS0=(AEN & xtioaddr_eqn) # a4;
+ 46:CF_CS1=(AEN & xtioaddr_eqn) # !a4;
  47:
- 48:/** Logic Equations **/
- 49:
- 50:CF_CS0          =( a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
- 51:CF_CS1          =(!a4 # xtioaddr1_eqn)  & AEN; /*change xtioaddr1..7_eqn i/o range*/
- 52:ROM_CS          =romaddr:[D0000..D2FFF]; /*default, change if conflict*/
- 53:/**
+ 48:ROM_CS          =romaddr:[D0000]; /*default, change if conflict*/
+ 49:/**
+ 50:    Addresses 0xC0000 - 0xC6000 will conflict with EGA/VGA BIOS extension
+ 51:    Addresses 0xC8000 - 0xCA000 might conflict with XT Hard Disk BIOS extension
+ 52:    Addresses 0xE0000 and up might conflict with system BIOS on newer motherboards
+ 53:
 
 LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 2
 
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Tue Apr 08 13:16:16 2025
+Created Thu Apr 10 11:02:28 2025
 
- 54:    use 12kb or 16kb range (0x2FFF 0x3FFF) depending on BIOS size (8K NOT TESTED)
+ 54:**/
  55:
- 56:    Addresses 0xC0000 - 0xC6000 will conflict with EGA/VGA BIOS extension
- 57:    Addresses 0xC8000 - 0xCA000 might conflict with XT Hard Disk BIOS extension
- 58:    Addresses 0xE0000 and up might conflict with system BIOS on newer motherboards
+ 56:CF_RESET        =!RESETDRV;
+ 57:LED             =CF_DASP;
+ 58:ROM_HI          =a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/
  59:
- 60:**/
+ 60:
  61:
- 62:CF_RESET        =!RESETDRV;
- 63:LED             =!CF_DASP;
- 64:ROM_HI          =a13; /* 0 for low 8k, 1 for high 8k, a13 for 16k*/
- 65:
- 66:
- 67:
- 68:
+ 62:
 
 
 
-Jedec Fuse Checksum       (2f83)
-Jedec Transmit Checksum   (e61c)
+Jedec Fuse Checksum       (3067)
+Jedec Transmit Checksum   (e606)

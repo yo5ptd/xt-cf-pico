@@ -1,4 +1,4 @@
-# xt-cf-pico   (BIOS works, CF adapter not yet tested)
+# xt-cf-pico   
 8-bit ISA interface for Compact Flash cards with a single CPLD  
 
 ## Introduction
@@ -13,7 +13,8 @@ This is my first ISA board and first PLD design, it should work only in theory, 
 ## Hardware Documentation
 The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter).
 
-Download latest bios from https://www.xtideuniversalbios.org/binaries/ (I used IDE_ATL.BIN) and configure primary IDE (with xtidecfg.com) for XT CF PIO8 (I used addr 0x300). 
+Download latest bios from https://www.xtideuniversalbios.org/binaries/ (I used IDE_ATL.BIN) and configure primary IDE (with xtidecfg.com) for XT CF BIU 8 (I used addr 0x300).
+[XTCFG](images/biu.jpg) 
 
 ### Schematic and PCB Layout
 
@@ -21,6 +22,7 @@ Download latest bios from https://www.xtideuniversalbios.org/binaries/ (I used I
 
 [PCB Layout](KiCad/XT-CF-Pico-Board.pdf)
 
+[Assembled](images/assembled.jpg)
 
 ### Bill of Materials
 
@@ -45,7 +47,7 @@ IC Socket      | U2        | 24 pin 300 mil (narrow) DIP socket      | 1        
 
 * PCB - 4.17 USD including shipping jlpcb
 * GAL20V8 - 3.47 USD including shipping aliexpress
-* 28C129 - 5.49 USD including shipping aliexpress
+* 28C128 - 5.49 USD including shipping aliexpress
 * 101D-TAAA-R01 attend - 10.4 including shipping from tme
 * passives - 1USD or less (you can order them from tme to save on shipping)
 
