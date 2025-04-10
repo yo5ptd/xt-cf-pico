@@ -8,7 +8,7 @@ XT-CF-Pico is a remake of Sergey Kiselev  [xt-cf-lite-v4]  efectively reverting 
 * 16 KiB EEPROM (28C128) with either 8 or 16k images, no flash ROM.
 * no jumpers, everything you configure in the PLD (GAL20V8, still available on Aliexpress, used in projects like C64 PLA20V8)
 
-This is my first ISA board and first PLD design, it should work only in theory, but not yet tested, so use at your own risk! My motivation was that there were too many components and a lot of unused pins on Sergey's design.
+This is my first ISA board and first PLD design, it was easy to debug by just rewriting the GAL and EPROM! My motivation was that there were too many components and a lot of unused pins on Sergey's design.
 
 ## Hardware Documentation
 The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter).
