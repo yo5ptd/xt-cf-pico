@@ -3,7 +3,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 1
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Thu Apr 10 11:02:28 2025
+Created Thu May 08 22:26:56 2025
 
   1:Name            Iodecode;
   2:Partno          CA0010;
@@ -33,8 +33,8 @@ Created Thu Apr 10 11:02:28 2025
  26:
  27:pin 22     = LED ;              /* led driven from CF_DASP      */
  28:pin 20     = CF_RESET ;        /* inverted RESETDRV from ISA    */
- 29:pin 16     = CF_CS0 ;          /* calculated CF_CS0             */
- 30:pin 17     = CF_CS1 ;          /* calculated CF_CS1             */
+ 29:pin 16     = !CF_CS0 ;          /* calculated CF_CS0            */
+ 30:pin 17     = !CF_CS1 ;          /* calculated CF_CS1            */
  31:pin 19     = ROM_HI ;           /* either 2x8k Blocks or one 16k*/
  32:pin 18     = !ROM_CS ;          /* ROM address chip select*/
  33:
@@ -49,8 +49,8 @@ Created Thu Apr 10 11:02:28 2025
  42:
  43:/** Logic Equations **/
  44:
- 45:CF_CS0=(AEN & xtioaddr_eqn) # a4;
- 46:CF_CS1=(AEN & xtioaddr_eqn) # !a4;
+ 45:!CF_CS0=!(!AEN & xtioaddr_eqn & !a4);
+ 46:!CF_CS1=!(!AEN & xtioaddr_eqn & a4);
  47:
  48:ROM_CS          =romaddr:[D0000]; /*default, change if conflict*/
  49:/**
@@ -64,7 +64,7 @@ LISTING FOR LOGIC DESCRIPTION FILE: PICOXTCF.pld                     Page 2
 CUPL(WM): Universal Compiler for Programmable Logic
 Version 5.0a Serial# MW-10400000
 Copyright (c) 1983, 1998 Logical Devices, Inc.
-Created Thu Apr 10 11:02:28 2025
+Created Thu May 08 22:26:56 2025
 
  54:**/
  55:
@@ -78,5 +78,5 @@ Created Thu Apr 10 11:02:28 2025
 
 
 
-Jedec Fuse Checksum       (3067)
-Jedec Transmit Checksum   (e606)
+Jedec Fuse Checksum       (2591)
+Jedec Transmit Checksum   (d668)

@@ -15,7 +15,7 @@ screw_mounts_on_bottom_of_pcb = 0; // [0:false, 1:true]
 screw_mount_width = 7.5;
 screw_mount_depth = 2.5;
 screw_mount_hole_r = 1.55; // m3 bolt
-screw_mount_thread_distance_base = 14;
+screw_mount_thread_distance_base = 15.6;
 screw_mount_inset_r = 2.9; // m3 bolt head
 screw_mount_inset_depth = 0;
 screw_mount_caulking = 0.5;
@@ -144,7 +144,7 @@ bracket_hole_dia = decorative_hole ? 4.75 : 0;
 bracket_hole_distance = low_profile ? 66.19 : 107.01;
 
 screw_mount_thread_distance = screw_mount_thread_distance_base + bracket_thickness;
-screw_mount_length = screw_mount_thread_distance * 1.4 + bracket_thickness;
+screw_mount_length = screw_mount_thread_distance * 1.1 + bracket_thickness;
 
 bracket_reinforce_depth = 0;
 bracket_reinforce_offset_x = -6;

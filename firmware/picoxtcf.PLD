@@ -26,8 +26,8 @@ pin 15     	= AEN ;    	/* ISA bus AEN       		*/
 
 pin 22     = LED ;              /* led driven from CF_DASP	*/
 pin 20     = CF_RESET ;        /* inverted RESETDRV from ISA	*/
-pin 16     = CF_CS0 ;          /* calculated CF_CS0		*/
-pin 17     = CF_CS1 ;          /* calculated CF_CS1		*/
+pin 16     = !CF_CS0 ;          /* calculated CF_CS0		*/
+pin 17     = !CF_CS1 ;          /* calculated CF_CS1		*/
 pin 19     = ROM_HI ;           /* either 2x8k Blocks or one 16k*/
 pin 18     = !ROM_CS ;          /* ROM address chip select*/
 
@@ -42,8 +42,8 @@ field   romaddr    = [a19..14] ;
 
 /** Logic Equations **/
 
-CF_CS0=(AEN & xtioaddr_eqn) # a4;
-CF_CS1=(AEN & xtioaddr_eqn) # !a4;
+!CF_CS0=!(!AEN & xtioaddr_eqn & !a4);
+!CF_CS1=!(!AEN & xtioaddr_eqn & a4);
 
 ROM_CS		=romaddr:[D0000]; /*default, change if conflict*/
 /**
