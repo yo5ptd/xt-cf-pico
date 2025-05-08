@@ -1,17 +1,17 @@
 # xt-cf-pico   
-8-bit ISA interface for Compact Flash cards with a single CPLD  
+8-bit ISA interface for Compact Flash cards with a single PLD  
 
 ## Introduction
 
-XT-CF-Pico is a remake of Sergey Kiselev  [xt-cf-lite-v4]  efectively reverting glue logic IC back to CPLD but still using through hole components. This card allows connecting a Compact Flash (CF) card to computers with ISA bus and using it as a mass storage device. The card also supports BIOS extension ROM.
+XT-CF-Pico is a remake of Sergey Kiselev  [xt-cf-lite-v4]  efectively reverting glue logic IC back to PLD but still using through hole components. This card allows connecting a Compact Flash (CF) card to computers with ISA bus and using it as a mass storage device. The card also supports BIOS extension ROM, but if you have it e.g. in a network adapter already, it's safe to leave it out.
 
-* 16 KiB EEPROM (28C128) with either 8 or 16k images, no flash ROM.
+* 16 KiB EEPROM (28128) with either 8 or 16k images, no flash ROM.
 * no jumpers, everything you configure in the PLD (GAL20V8, still available on Aliexpress, used in projects like C64 PLA20V8)
 
 This is my first ISA board and first PLD design, it was easy to debug by just rewriting the GAL and EPROM! My motivation was that there were too many components and a lot of unused pins on Sergey's design.
 
 ## Hardware Documentation
-The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter).
+The idea was to use a minimum amount of components that were available late '80s, keeping Sergey's concept of having them all through hole (except of course the CF adapter). Result was one GAL IC and one EPROM.
 
 Download latest bios from https://www.xtideuniversalbios.org/binaries/ (I used IDE_ATL.BIN) and configure primary IDE (with xtidecfg.com) for XT CF BIU 8 (I used addr 0x300).
 [XTCFG](images/biu.jpg) 
@@ -37,7 +37,7 @@ Resistor       | R1        | 470 Ohm, 1/4 W                          | 1        
 Resistor       | R3        | 1 kOhm, 1/4 W                           | 1        | Mouser 291-1K-RC
 Resistor       | R4        | 5.6 kOhm, 1/4 W                         | 1        | Mouser 291-5.6K-RC
 Resistor       | R2        | 10 kOhm, 1/4 W                          | 0        | Note: Do not install, kept for historic reasons only (card present detection?)
-IC             | U1        | 27C128 EEPROM                           | 1        | mbm27c128
+IC             | U1        | 27128 EEPROM                            | 1        | mbm27128
 IC Socket      | U1        | 28 pin 600 mil (wide) DIP socket        | 1        | optional
 IC Socket      | U2        | 24 pin 300 mil (narrow) DIP socket      | 1        | optional
 
